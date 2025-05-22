@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard | MyTasklyProve</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    <p>This is your dashboard.</p>
+    <a href="{{ url_for('main.logout') }}">Logout</a>
+</body>
+</html>
