@@ -17,6 +17,10 @@ def create_app():
     from .models import User  # Import your models here to register them with SQLAlchemy
 
     from .routes import main
+    from .modules import modules_routes
+
+    # Register the blueprints
     app.register_blueprint(main)
+    app.register_blueprint(modules_routes)
 
     return app

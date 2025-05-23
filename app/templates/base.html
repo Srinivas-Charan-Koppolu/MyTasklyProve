@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %} {% endblock %}
+    <title>{% block title %} {% endblock %} | MyTasklyProve</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block style %} {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>MyTasklyProve</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                {% if 'user_id' in session %}
+                    <li><a href="#">ProveMode</a></li>
+                    <li><a href="{{ url_for('modules.auth.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('modules.auth.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('modules.auth.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+
+    <div class="flashMessages" id="flashMessages">
+     {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li>
+              {{ message }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    </div>
+
+    <footer>
+        <p>&copy; 2023 MyTasklyProve. All rights reserved.</p>
+        {% block footer %} {% endblock %}
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block script %} {% endblock %}
+
+</body>
+</html>

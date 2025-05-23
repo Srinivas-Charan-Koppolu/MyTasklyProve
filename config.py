@@ -12,3 +12,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY', 'mytasklyprove-secret')
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DB_PATH
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Routes Enable/Disable
+    ENABLE_AUTH = True
+    ENABLE_DASHBOARD = False

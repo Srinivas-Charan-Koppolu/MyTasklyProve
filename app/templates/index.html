@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome | MyTasklyProve</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+
+
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
     <h1>Welcome to MyTasklyProve</h1>
     <p>Track tasks. Get rewards. Prove your growth.</p>
-    <a href="/login">Login</a> | <a href="/register">Register</a>
-</body>
-</html>
+
+{% endblock %}
+

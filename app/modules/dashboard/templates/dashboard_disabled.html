@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard Disabled{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Dashboard Disabled</h1>
+    <p>Sorry, the dashboard is currently disabled. Please check back later.</p>
+    <p>If you believe this is an error, please contact support.</p>
+    <p><a href="{{ url_for('main.index') }}">Return to Home</a></p>
+</div>
+{% endblock %}
+
