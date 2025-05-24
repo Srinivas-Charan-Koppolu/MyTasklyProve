@@ -8,4 +8,6 @@ def index():
 def about():
     return render_template('about.html')
 
-
+def see_users():
+    users = User.query.all()
+    return render_template('see_users.html', users=users)

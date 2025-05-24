@@ -10,3 +10,7 @@ def index():
 @main.route('/about')
 def about():
     return views.about()
+
+@main.route('/seeUsers')
+def see_users():
+    return views.see_users()

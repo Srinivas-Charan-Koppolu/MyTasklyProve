@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}See Users{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+
+{% if users %}
+    <ul>
+        {% for user in users %}
+            <li>
+                <strong>{{ user.username }}</strong>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No users found.</p>
+{% endif %}
+
+{% endblock %}
