@@ -19,10 +19,12 @@ def create_app():
     from .routes import main
     from .Taskly import Taskly_routes
     from .Prove import Prove_routes
+    from .Admin import Admin_routes
 
     # Register the blueprints
     app.register_blueprint(main)
     app.register_blueprint(Taskly_routes, url_prefix="/taskly")
     app.register_blueprint(Prove_routes, url_prefix="/prove")
+    app.register_blueprint(Admin_routes, url_prefix="/admin")
 
     return app
