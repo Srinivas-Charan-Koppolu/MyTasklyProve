@@ -11,14 +11,24 @@
         <h1>MyTasklyProve</h1>
         <nav>
             <ul>
-                <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                {% if 'user_id' in session %}
-                    <li><a href="#">ProveMode</a></li>
-                    <li><a href="{{ url_for('modules.auth.logout') }}">Logout</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('modules.auth.login') }}">Login</a></li>
-                    <li><a href="{{ url_for('modules.auth.register') }}">Register</a></li>
-                {% endif %}
+                {% block navprimary %}
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>  
+                <li><a href="{{ url_for('main.about') }}">About</a></li>
+                {% endblock %}
+                {% block navsecondary %}
+                  {% if 'user_id' in session %}
+                      {% block navsecondaryUser %}
+                      <li><a href="{{ url_for('Taskly.dashboard.index') }}">Dashboard</a></li>
+                      <li><a href="{{ url_for('Prove.verify.index')  }}">ProveMode</a></li>
+                      <li><a href="{{ url_for('Taskly.auth.logout') }}">Logout</a></li>
+                      {% endblock %}
+                  {% else %}
+                      {% block navsecondaryNoUser %}
+                      <li><a href="{{ url_for('Taskly.auth.login') }}">Login</a></li>
+                      <li><a href="{{ url_for('Taskly.auth.register') }}">Register</a></li>
+                      {% endblock %}
+                  {% endif %}
+                {% endblock %}
             </ul>
         </nav>
     </header>

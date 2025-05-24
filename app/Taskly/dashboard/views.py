@@ -7,6 +7,6 @@ def dashboard_disabled():
 def dashboard():
     if 'user_id' not in session:
         flash('Please login first', 'error')
-        return redirect(url_for('modules.auth.login'))
+        return redirect(url_for('Taskly.auth.login'))
 
     return render_template('dashboard.html', username=session.get('username'))

@@ -6,3 +6,7 @@ main = Blueprint('main', __name__, template_folder='./templates', static_folder=
 @main.route('/')
 def index():
     return views.index()
+
+@main.route('/about')
+def about():
+    return views.about()

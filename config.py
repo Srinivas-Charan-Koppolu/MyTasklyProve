@@ -15,4 +15,5 @@ class Config:
 
     # Routes Enable/Disable
     ENABLE_AUTH = True
-    ENABLE_DASHBOARD = False
+    ENABLE_DASHBOARD = True
+

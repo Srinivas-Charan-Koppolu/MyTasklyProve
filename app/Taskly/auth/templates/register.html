@@ -3,13 +3,13 @@
 {% block title %}Register{% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="{{ url_for('modules.auth.static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('Taskly.auth.static', filename='css/style.css') }}" />
 {% endblock %}
 
 {% block content %}
 
     <h2>Register</h2>
-    <form method="POST" action="{{ url_for('modules.auth.register') }}">
+    <form method="POST" action="{{ url_for('Taskly.auth.register') }}">
         <label for="username">Username:</label><br />
         <input type="text" name="username" id="username" required /><br /><br />
 
@@ -18,5 +18,5 @@
 
         <button type="submit">Register</button>
     </form>
-    <p>Already have an account? <a href="{{ url_for('modules.auth.login') }}">Login here</a>.</p>
+    <p>Already have an account? <a href="{{ url_for('Taskly.auth.login') }}">Login here</a>.</p>
 {% endblock %}

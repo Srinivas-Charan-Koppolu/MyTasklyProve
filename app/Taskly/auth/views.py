@@ -18,7 +18,7 @@ def register():
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
             flash('Username already taken. Please choose another.', 'error')
-            return redirect(url_for('modules.auth.register'))
+            return redirect(url_for('Taskly.auth.register'))
 
         # Create new user
         new_user = User(username=username)
@@ -28,7 +28,7 @@ def register():
         db.session.commit()
 
         flash('Registration successful! Please log in.', 'success')
-        return redirect(url_for('modules.auth.login'))
+        return redirect(url_for('Taskly.auth.login'))
 
     return render_template('register.html')
 
@@ -47,14 +47,14 @@ def login():
             session['user_id'] = user.id
             session['username'] = user.username
             flash('Logged in successfully!', 'success')
-            return redirect(url_for('modules.dashboard.index'))
+            return redirect(url_for('Taskly.dashboard.index'))
         else:
             flash('Invalid username or password', 'error')
-            return redirect(url_for('modules.auth.login'))
+            return redirect(url_for('Taskly.auth.login'))
 
     return render_template('login.html')
 
 def logout():
     session.clear()
     flash('You have been logged out.', 'success')
-    return redirect(url_for('modules.auth.login'))
+    return redirect(url_for('Taskly.auth.login'))
